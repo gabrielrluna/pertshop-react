@@ -1,0 +1,11 @@
+.titulo_secao {
+  color: red;
+}
+
+.titulo_secao::after {
+}
+
+.titulo_secao::before {
+  content: "📰";
+  margin-right: 0.5rem;
+}

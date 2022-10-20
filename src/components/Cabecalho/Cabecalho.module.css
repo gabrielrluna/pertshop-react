@@ -1,5 +1,5 @@
 .topo {
-  background-color: yellow;
+  background-color: #f7f7f7;
   box-shadow: var(--sombra-box);
 }
 
@@ -20,10 +20,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  padding-bottom: 1rem;
 }
 
 .topo img {
   width: 48px;
+  margin-right: 0.5rem;
 }
 
 .topo h1 a:hover,
@@ -31,16 +34,20 @@
   color: var(--cor-secundaria-hover);
 }
 
-/* Crie uma media query para telas a partir de 700px e faça as seguintes mudanças:
-- Div do topo deve exibir o conteúdo lado a lado 
+/* Crie uma media query para telas a partir de 700px, e faça as seguintes mudanças:
+
+- Div do topo deve exibir o conteúdo lado a lado
 - Tamanho do nome do site deve aumentar para 2rem
 - Logotipo deve aumentar para 50px */
 
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
+  .topo div {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
   .topo h1 a {
     font-size: 2rem;
   }
-
   .topo img {
     width: 50px;
   }
