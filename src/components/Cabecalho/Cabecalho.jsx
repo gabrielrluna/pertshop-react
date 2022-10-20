@@ -1,5 +1,4 @@
 import Menu from "../Menu/Menu";
-
 import estilos from "./Cabecalho.module.css";
 import logo from "../../assets/images/logo.png";
 

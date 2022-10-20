@@ -15,13 +15,13 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/produtos">
+            <Route path="/produtos">
               <Produtos />
             </Route>
-            <Route exact path="/sobre">
+            <Route path="/sobre">
               <Sobre />
             </Route>
-            <Route exact path="/contato">
+            <Route path="/contato">
               <Contato />
             </Route>
           </Switch>
