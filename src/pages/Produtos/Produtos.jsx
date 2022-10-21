@@ -1,41 +1,36 @@
 import estilos from "./Produtos.module.css";
+import Caixa from "../../components/Caixa/Caixa";
 
 const Produtos = () => {
   return (
     <section>
-      <h2 className={estilos.titulo_secao}>Produtos</h2>
-      <div id="produtos" className={estilos.produtos}>
+      <h2 className={estilos.titulo_secao}>Conheça nossos produtos!</h2>
+      <Caixa id="produtos" className={estilos.produtos}>
         <article>
           <h3>Produto 1</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-            sapiente vero laudantium aut! Exercitationem reprehenderit est
-            veritatis alias explicabo porro voluptates non vitae! Aliquam
-            placeat voluptatibus quasi, aperiam repellat laborum praesentium
-            inventore?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            aliquid cum aspernatur distinctio veniam iusto iure nam odio,
+            dolorem exercitationem eos quaerat.
           </p>
         </article>
         <article>
-          <h3>Produto 2</h3>
+          <h3>Produto 1</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-            sapiente vero laudantium aut! Exercitationem reprehenderit est
-            veritatis alias explicabo porro voluptates non vitae! Aliquam
-            placeat voluptatibus quasi, aperiam repellat laborum praesentium
-            inventore?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            aliquid cum aspernatur distinctio veniam iusto iure nam odio,
+            dolorem exercitationem eos quaerat.
           </p>
         </article>
         <article>
-          <h3>Produto 3</h3>
+          <h3>Produto 1</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-            sapiente vero laudantium aut! Exercitationem reprehenderit est
-            veritatis alias explicabo porro voluptates non vitae! Aliquam
-            placeat voluptatibus quasi, aperiam repellat laborum praesentium
-            inventore?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            aliquid cum aspernatur distinctio veniam iusto iure nam odio,
+            dolorem exercitationem eos quaerat.
           </p>
         </article>
-      </div>
+      </Caixa>
     </section>
   );
 };
