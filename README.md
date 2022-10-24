@@ -25,7 +25,7 @@ Telas a partir de X tamanho (min-width)
 
 Telas de até o tamanho X (max-width)
 
-## uso de rotas com a lib react-router-dom (vs5)
+## Uso de rotas com a lib react-router-dom (vs5)
 
 ### Instalação
 
@@ -51,8 +51,35 @@ Telas de até o tamanho X (max-width)
 
 2. Substituir a tag <a> pelo <NavLink> e o atributo <href> por <to>
 
-### Criação de um componente de interface chamado Caixa
+## Criação de um componente de interface chamado Caixa
 
-Em vez de usar uma 'div' em cada página agrupando conteúdos diferentes, isolamos ela num componente genérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programamos através de 'props' o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**)
+Em vez de usar uma div em cada página agrupando conteúdos diferentes, isolamos ela num componente genérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programamos através de 'props' o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**)
 
 **Dica:** Você pode usar **destructuring** de objetos nas 'props'.
+
+### Instalação global do pacote JSON-SERVER
+
+`npm install -g json-server`
+
+Obs: Se tiver problmas para executar, utilize o **Node.JS command prompt**
+
+### Utilização de um arquivo.json para simular a base de dados da API
+
+É necessário criar um arquivo.json em qualquer pasta em sua máquina (no nosso caso, usamos a própria pasta raiz do PetShop). Este arquivo deve ser composto por um grande objeto contendo arrays com outros objetos.
+
+### Execução do servidor da API
+
+1. Usando de preferência o **Node.js command prompt**, acesse a pasta onde está o **nome-do-arquivo.json**
+2. Execute o comando `json-server --watch nome-do-arquivo.json --port 2112`
+
+Obs: O número da porta deve ser diferente de 3000 (que é padrão no json-server), pois esta porta já estará sendo usada pelo app **React**
+
+Dica: no **package.json** do seu app, adicione em `scripts` uma nova propriedade chamada `api` valendo `json-server --watch nome-do-arquivo.json --port 2112`. Desta forma, você poderá executar o server da API digitando simplesmente `npm run api`
+
+Após a execução da API, cada array de objetos contido no **arquivo.json** se torna um `endpoint` da API, acessível através da URL _localhost:porta/nome-do-endpoint_
+
+Exemplos:
+
+http://localhost:2112/categorias
+http://localhost:2112/posts
+http://localhost:2112/contatos
