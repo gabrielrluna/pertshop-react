@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"; //Hooks do React
 import servidorApi from "../../api/server-api";
+import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaPosts.module.css";
 
 const ListaPosts = () => {
@@ -7,6 +8,7 @@ const ListaPosts = () => {
   // preenchê-lo" com os dados vindos da API. Esta atribuição será feita
   // com o auxílio do setPosts.
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // console.log(servidorApi + "/posts");
 
@@ -17,12 +19,17 @@ const ListaPosts = () => {
         const resposta = await fetch(`${servidorApi}/posts`);
         const dados = await resposta.json();
         setPosts(dados);
+        setLoading(false);
       } catch (error) {
         console.log("Deu ruim!" + error.message);
       }
     }
     getPosts();
   }, []);
+
+  if (loading) {
+    return <LoadingDesenho />;
+  }
 
   /*Sobre o UseEffect 
 Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
