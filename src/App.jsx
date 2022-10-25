@@ -18,9 +18,12 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/posts">
+
+            {/* Rota de redirecionamento (se o usuário cair em "/posts"), ele será redirecionado à rota raiz (onde está o Home) */}
+            <Route exact path="/posts">
               <Redirect to={"/"} />
             </Route>
+
             <Route path={"/posts/:id"}>
               <Post />
             </Route>
