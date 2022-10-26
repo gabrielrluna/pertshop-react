@@ -57,6 +57,7 @@ momento que o componente é renderizado a primeira vez*/
         return (
           <ArtigoPost
             key={id}
+            id={id}
             titulo={titulo}
             subtitulo={subtitulo}
             classe={estilos.post}
