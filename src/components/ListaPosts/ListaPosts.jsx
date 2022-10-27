@@ -32,7 +32,11 @@ const ListaPosts = (props) => {
   }, [props.url]);
 
   if (loading) {
-    return <LoadingDesenho />;
+    return <LoadingDesenho texto="posts..." />;
+  }
+
+  if (posts.length === 0) {
+    return <h2 className="">Não há posts!</h2>;
   }
 
   /*Sobre o UseEffect 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"; //Hooks do React
 import servidorApi from "../../api/server-api";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaCategorias.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ListaCategorias = () => {
   /*Atribuição do useState para manipular os dados do componente
@@ -28,7 +28,7 @@ const ListaCategorias = () => {
   }, []);
 
   if (loading) {
-    return <LoadingDesenho />;
+    return <LoadingDesenho texto="categorias..." />;
   }
 
   return (
@@ -40,7 +40,12 @@ const ListaCategorias = () => {
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id}>
-              <Link to={`/categoria/${nome}`}>{nome}</Link>
+              <NavLink
+                activeClassName={estilos.ativo}
+                to={`/categoria/${nome}`}
+              >
+                {nome}
+              </NavLink>
             </li>
           );
         })}
