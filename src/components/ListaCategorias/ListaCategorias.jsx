@@ -37,11 +37,10 @@ const ListaCategorias = () => {
         {/* {categorias.map((categoria) => {
           return <li key={categoria.id}>{categoria.nome}</li>;
         })} */}
-
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id}>
-              <Link to="">{nome}</Link>
+              <Link to={`/categorias/${nome}`}>{nome}</Link>
             </li>
           );
         })}
