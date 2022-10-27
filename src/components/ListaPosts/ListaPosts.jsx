@@ -4,7 +4,7 @@ import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaPosts.module.css";
 import ArtigoPost from "../../pages/ArtigoPost/ArtigoPost";
 
-const ListaPosts = () => {
+const ListaPosts = (props) => {
   // Iniciamos o state do componente com um array vazio para, posteriormente,
   // preenchê-lo" com os dados vindos da API. Esta atribuição será feita
   // com o auxílio do setPosts.
@@ -17,7 +17,8 @@ const ListaPosts = () => {
     // const getPosts = async () => {
     async function getPosts() {
       try {
-        const resposta = await fetch(`${servidorApi}/posts`);
+        //const resposta = await fetch(`${servidorApi}/posts/}`);
+        const resposta = await fetch(`${servidorApi}/${props.url || "posts"}`);
         const dados = await resposta.json();
         setPosts(dados);
         setLoading(false);
@@ -26,7 +27,9 @@ const ListaPosts = () => {
       }
     }
     getPosts();
-  }, []);
+    // É necessário indicar a URL como dependência pois ela muda toda vez em que uma categoria é clicada.
+    // Desta Forma, o useEffect "entende" que ele deve executar novamente as suas funções (neste caso, executar novamente o fetch na API)
+  }, [props.url]);
 
   if (loading) {
     return <LoadingDesenho />;
