@@ -1,16 +1,49 @@
 import estilos from "./Contato.module.css";
 import Caixa from "../../components/Caixa/Caixa";
 import { TextField, Button } from "@mui/material";
+import { useState } from "react";
+import servidorApi from "../../api/server-api";
 
 const Contato = () => {
+  // Eventos/Funções para captura da digitação nos campos
+  const inputNome = (event) => setNome(event.target.value);
+  const inputEmail = (event) => setEmail(event.target.value);
+  const inputMensagem = (event) => setMensagem(event.target.value);
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  const enviarContato = async (event) => {
+    event.preventDefault();
+
+    const opcoes = {
+      method: "POST",
+      body: JSON.stringify({ nome, email, mensagem }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    };
+    try {
+      await fetch(`${servidorApi}/contatos`, opcoes);
+      alert("Dados enviados!");
+    } catch (error) {
+      console.log("Deu ruim: " + error.message);
+    }
+  };
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Contato</h2>
 
       <Caixa>
-        <form className={estilos.formulario} method="post">
+        <form
+          onSubmit={enviarContato}
+          className={estilos.formulario}
+          method="post"
+        >
           <div>
             <TextField
+              onChange={inputNome}
               label="Nome"
               variant="outlined"
               fullWidth
@@ -20,6 +53,7 @@ const Contato = () => {
           </div>
           <div>
             <TextField
+              onChange={inputEmail}
               type="email"
               label="email"
               variant="outlined"
@@ -30,6 +64,7 @@ const Contato = () => {
           </div>
           <div>
             <TextField
+              onChange={inputMensagem}
               type="text"
               label="Mensagem"
               variant="outlined"
