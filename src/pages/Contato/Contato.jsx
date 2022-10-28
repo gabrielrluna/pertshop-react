@@ -31,6 +31,9 @@ const Contato = () => {
       console.log("Deu ruim: " + error.message);
     }
   };
+
+  let desabilitado = !nome || !mensagem || !email;
+
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Contato</h2>
@@ -76,7 +79,7 @@ const Contato = () => {
             />
           </div>
           <div>
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" disabled={desabilitado}>
               Enviar Mensagem
             </Button>
           </div>
