@@ -14,6 +14,8 @@ const ListaPosts = (props) => {
   // console.log(servidorApi + "/posts");
 
   useEffect(() => {
+    setLoading(true);
+
     // const getPosts = async () => {
     async function getPosts() {
       try {
