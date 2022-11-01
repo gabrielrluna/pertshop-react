@@ -1,7 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import serverApi from "../../api/servidor-api";
+import servidorApi from "../../api/server-api";
 
 import Caixa from "../../components/Caixa/Caixa";
 import estilos from "./Contato.module.css";
@@ -34,7 +34,7 @@ const Contato = () => {
 
     /* Script para envio dos dados para a API */
     try {
-      await fetch(`${serverApi}/contatos`, opcoes);
+      await fetch(`${servidorApi}/contatos`, opcoes);
       alert("Dados enviados!");
       history.push("/"); // Redirecionar para a "home/blog"
     } catch (error) {

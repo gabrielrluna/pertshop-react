@@ -85,3 +85,18 @@ http://localhost:2112/posts
 http://localhost:2112/contatos
 
 ## MUI: Biblioteca de componentes para React
+
+## Para usar a API via rede local
+
+### package.json
+
+Altere a linha: `"api": "json-server --watch db.json --port 2112"`
+Para: `"api": "json-server --host NUMERO.IP.DA.SUA.MAQUIA db.json --port 2112"`
+
+Exemplo: `"api": "json-server --host 10.20.45.44 db.json --port 2112"`
+
+### servidor.api.js
+
+Duplique e comente a linha da constante atual (serverApi)
+Na versão descomentada, substitua o `localhost` pelo `numero.ip.da.sua.maquina`
+Pare a API no terminal e execute novamente `npm run api`
