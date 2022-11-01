@@ -100,3 +100,15 @@ Exemplo: `"api": "json-server --host 10.20.45.44 db.json --port 2112"`
 Duplique e comente a linha da constante atual (serverApi)
 Na versão descomentada, substitua o `localhost` pelo `numero.ip.da.sua.maquina`
 Pare a API no terminal e execute novamente `npm run api`
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Configurar arquivo manifest.json
+
+Um **arquivo de manifesto** é um arquivo JSON contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compatível.
+
+### Configurar/Programar um Service Worker JS
+
+Um Service Worker (Trabalhador/Manipulador de serviços) é um script que o navegador executa em segundo plano separado da aplicação web, possibilitando recursos que não precisam de uma página ou interações com o usuário.
+
+O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Aplications)**, tais como: cache offline, sincronização em segundo plano, notificações, execução independente do navegador mobile, etc
