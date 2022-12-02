@@ -5,7 +5,7 @@ import ListaPosts from "../../components/ListaPosts/ListaPosts";
 
 // Objetivo deste componente é exibir o ListaPost filtrado pela categoria escolhida no menu ListaCategorias
 
-const Categoria = () => {
+const Categoria = (categoria) => {
   const { nome } = useParams();
   console.log(nome);
   return (
@@ -14,7 +14,7 @@ const Categoria = () => {
 
       <ListaCategorias />
 
-      <ListaPosts url={`posts?categoria=${nome}`} />
+      <ListaPosts categoria={nome} />
     </section>
   );
 };
