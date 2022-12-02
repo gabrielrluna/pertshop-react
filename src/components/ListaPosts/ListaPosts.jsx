@@ -20,9 +20,22 @@ const ListaPosts = (props) => {
     async function getPosts() {
       try {
         //const resposta = await fetch(`${servidorApi}/posts/}`);
-        const resposta = await fetch(`${servidorApi}/${props.url || "posts"}`);
+        const resposta = await fetch(`${servidorApi}/posts.json`);
         const dados = await resposta.json();
-        setPosts(dados);
+
+        let listaDePosts = [];
+
+        for (const post in dados) {
+          const objetoPost = {
+            id: post,
+            titulo: dados[post].titulo,
+            subtitulo: dados[post].subtitulo,
+            categoria: dados[post].categoria,
+          };
+
+          listaDePosts.push(objetoPost);
+        }
+        setPosts(listaDePosts);
         setLoading(false);
       } catch (error) {
         console.log("Deu ruim!" + error.message);
