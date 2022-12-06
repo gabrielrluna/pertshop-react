@@ -17,11 +17,11 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const resposta = await fetch(`${servidorApi}/posts/${id}`);
+        const resposta = await fetch(`${servidorApi}/posts/${id}.json`);
         const dados = await resposta.json();
         setPost(dados);
         setLoading(false);
-        if (Object.keys(dados).lenght === 0) {
+        if (!dados) {
           history.push("/404");
         }
       } catch (error) {
@@ -29,7 +29,7 @@ const Post = () => {
       }
     }
     getPost();
-  }, [id]);
+  }, [id, history]);
 
   if (loading) {
     return <LoadingDesenho />;
